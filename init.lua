@@ -26,3 +26,34 @@ vim.opt.runtimepath:append(vim.fs.joinpath(rocks_config.rocks_path, "lib", "luar
 
 vim.g.mapleader = " "
 
+-- Config undo, backup and swap directory
+USER = os.getenv("USER")
+SWAPDIR = "/home/" .. USER .. "/nvim/swap//"
+BACKUPDIR = "/home/" .. USER .. "/nvim/backup//"
+UNDODIR = "/home/" .. USER .. "/nvim/undo//"
+if vim.fn.isdirectory(SWAPDIR) == 0 then
+	vim.fn.mkdir(SWAPDIR, "p", "0o700")
+end
+
+if vim.fn.isdirectory(BACKUPDIR) == 0 then
+	vim.fn.mkdir(BACKUPDIR, "p", "0o700")
+end
+
+if vim.fn.isdirectory(UNDODIR) == 0 then
+	vim.fn.mkdir(UNDODIR, "p", "0o700")
+end
+
+vim.opt.directory = SWAPDIR
+vim.opt.backupdir = BACKUPDIR
+vim.opt.undodir = UNDODIR
+vim.opt.swapfile = true
+vim.opt.backup = true
+vim.opt.undofile = true
+
+-- Append backup files with timestamp
+vim.api.nvim_create_autocmd("BufWritePre", {
+	callback = function()
+		local extension = "~" .. vim.fn.strftime("%Y-%m-%d-%H%M%S")
+		vim.o.backupext = extension
+	end,
+})
