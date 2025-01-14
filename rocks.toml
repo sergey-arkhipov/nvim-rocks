@@ -1,0 +1,54 @@
+# This is your rocks.nvim plugins declaration file.
+# Here is a small yet pretty detailed example on how to use it:
+#
+# [plugins]
+# nvim-treesitter = "semver_version"  # e.g. "1.0.0"
+
+# List of non-Neovim rocks.
+# This includes things like `toml` or other lua packages.
+[rocks]
+
+# List of Neovim plugins to install alongside their versions.
+# If the plugin name contains a dot then you must add quotes to the key name!
+[plugins]
+# Rocks block
+"rocks.nvim" = "2.42.4" # rocks.nvim can also manage itself :D
+"rocks-git.nvim" = "2.5.2"
+"rocks-config.nvim" = "3.1.0"
+
+# Tree-sitters block.
+tree-sitter-lua = "0.0.32"
+"rocks-treesitter.nvim" = "1.3.0"
+tree-sitter-toml = "0.0.31"
+tree-sitter-bash = "0.0.37"
+tree-sitter-yaml = "0.0.30"
+
+"nvim-tree.lua" = "1.6.0"  	# Explorer and file manager
+
+"which-key.nvim" = "3.15.0" 	# Key mapping plugin
+"gruvbox.nvim" = "2.0.0" 	# Colorschema plugin
+
+# Working OSC52 solution for ssh, tmux and so on
+[plugins."smartyank.nvim"]
+git = "https://github.com/ibhagwan/smartyank.nvim.git"
+rev = "0a4554a4ea4cad73dab0a15e559f2128ca03c7b2"
+
+# Status line
+[plugins."lualine.nvim"]
+git = "https://github.com/nvim-lualine/lualine.nvim.git"
+rev = "2a5bae925481f999263d6f5ed8361baef8df4f83"
+
+# Set directory for plugins config
+[config]
+plugins_dir = "plugins/"
+auto_setup = false
+colorscheme = "gruvbox" # Currennt colorschema
+
+[config.options] # Allow to set neovim options aka vim
+number = true
+relativenumber = true
+hlsearch = true
+tabstop = 2 # A TAB character looks like 4 spaces
+expandtab = true # Pressing the TAB key will insert spaces instead of a TAB character
+softtabstop = 2 # Number of spaces inserted instead of a TAB character
+shiftwidth = 2 # Number of spaces inserted when indenting
