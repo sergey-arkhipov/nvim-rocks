@@ -32,6 +32,8 @@ tree-sitter-dockerfile = "0.0.30"
 # Highly extendable fuzzy finder over lists 
 "telescope.nvim" = "scm"
 "telescope-undo.nvim" = "scm"
+luasnip = "2.3.0"
+friendly-snippets = "scm"
 
 # Working OSC52 solution for ssh, tmux and so on
 [plugins."smartyank.nvim"]
